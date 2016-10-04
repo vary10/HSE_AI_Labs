@@ -1,19 +1,3 @@
-# HSE_AI_Labs
-Repository for HSE AI class labs
-
-## Dependencies
-
-* UE 4.13
-
-## Available content
-
-* Lesson_1: Basic tutorial on UE4 usage
-  * Project creation
-  * Implementation of C++ actor classes
-  * Game input handling
-  * Blueprints creation
-  * Collision detection
-  * Game modes
-  * HUDs
-  
-* Lab_1: Implementation of simple AI for playing the game
+Изменения относительно начальной версии:
+- при выборе нового заказа выбирается заказ с наименьшим priority = (distance - 310) * timeLeft^2.
+- если бот дальше, чем 300(см) от currentDestination, то в цикле проверяется расстояние до всех домов с заказами, и если до какого-то оно меньше 380, то бот бежит к нему. Это позволяет выполнять заказы по пути. После выполнения такого заказа бот возвращается к выполнению прежнего заказа в силу формулы priority.
