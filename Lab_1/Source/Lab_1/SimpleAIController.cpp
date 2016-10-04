@@ -30,7 +30,7 @@ void ASimpleAIController::Tick(float DeltaSeconds)
         }
         for (int i = 0; i < Orders.Num(); ++i) {
             float currentDistance = GetDistanceToDestination(HouseLocations[Orders[i].HouseNumber]);
-            if (currentDistance < 400.f) {
+            if (currentDistance < 390.f && CurrentDestination != HouseLocations[Orders[i].HouseNumber]) {
                 auto HouseLocation = HouseLocations[Orders[i].HouseNumber];
                 bDeliveringOrder = true;
                 CurrentOrderNumber = Orders[i].OrderNumber;
@@ -59,7 +59,7 @@ void ASimpleAIController::Tick(float DeltaSeconds)
         float currentDistance = GetDistanceToDestination(HouseLocations[Orders[i].HouseNumber]);
         float currentTime = GetHouseTimeLeft(Orders[i].HouseNumber);
         UE_LOG(LogTemp, Warning, TEXT("priority %f, current distance: %1.3f, time %1.3f, house %d"), (currentDistance - 250) * currentTime * currentTime, currentDistance, currentTime,Orders[i].HouseNumber);
-        if (priority > (currentDistance - 310) * (currentTime)* (currentTime)) {
+        if (priority > (currentDistance - 310) * currentTime * currentTime) {
             priority = (currentDistance - 310) * currentTime * currentTime;
             closestOrder = Orders[i].OrderNumber;
             UE_LOG(LogTemp, Warning, TEXT("Closest order %d"), closestOrder);
