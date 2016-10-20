@@ -23,7 +23,9 @@ protected:
 
     float ComputeHouseScore(float Distance, float TimeLeft) const;
 
+    int tick;
     bool bDeliveringOrder;
     int CurrentOrderNumber;
+    int ClosestOrderNumber;
     FVector CurrentDestination;
 };

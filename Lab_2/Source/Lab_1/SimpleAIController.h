@@ -18,6 +18,9 @@ public:
 
     int GetCurrentOrderNumber();
 
+    void SetCurrentOrderNumber(FPizzaOrder order);
+
+
 protected:
     virtual void Tick(float DeltaSeconds) override;
 
